@@ -130,7 +130,9 @@ Ein realistischer Wolf läuft durch einen verschneiten Wald bei Sonnenuntergang"
 <h2>🎬 Dein KI-Video Prompt</h2>
 
 <p id="promptText"></p>
+<h2>📖 Storyboard</h2>
 
+<p id="storyboardText"></p>
 </div>
 
 </div>
@@ -157,7 +159,19 @@ let prompt =
 
 
 document.getElementById("promptText").innerText = prompt;
+let storyboard =
+"🎬 Szene 1:\n" +
+"Einführung der Umgebung. Langsame Kamerafahrt. " +
+"Schöne Beleuchtung und detaillierte Atmosphäre.\n\n" +
 
+"🎬 Szene 2:\n" +
+"Die Hauptfigur erlebt die zentrale Handlung. " +
+"Emotionale Nahaufnahmen und flüssige Bewegungen.\n\n" +
+
+"🎬 Szene 3:\n" +
+"Abschluss der Geschichte mit einer beeindruckenden Filmszene.";
+
+document.getElementById("storyboardText").innerText = storyboard;
 document.getElementById("result").style.display="block";
 
 }
