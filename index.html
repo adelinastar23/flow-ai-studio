@@ -8,6 +8,7 @@
 
 <title>Flow AI Studio</title>
 
+
 <style>
 
 body {
@@ -17,11 +18,13 @@ body {
     margin:0;
 }
 
+
 .container {
     max-width:900px;
     margin:auto;
     padding:40px;
 }
+
 
 h1 {
     text-align:center;
@@ -29,14 +32,19 @@ h1 {
     font-size:42px;
 }
 
+
 .box {
+
     background:#1f2937;
     padding:25px;
     border-radius:20px;
     margin-top:20px;
+
 }
 
+
 textarea {
+
     width:100%;
     height:120px;
     padding:15px;
@@ -44,21 +52,26 @@ textarea {
     border:none;
     font-size:16px;
     box-sizing:border-box;
+
 }
 
+
 select {
+
     width:100%;
     padding:15px;
     border-radius:10px;
     border:none;
     font-size:16px;
+
 }
+
+
 
 button {
 
     width:100%;
     padding:18px;
-    margin-top:10px;
     background:#8b5cf6;
     color:white;
     border:none;
@@ -68,9 +81,14 @@ button {
 
 }
 
+
+
 button:hover {
+
     background:#7c3aed;
+
 }
+
 
 
 .result {
@@ -81,6 +99,7 @@ button:hover {
 
 
 </style>
+
 
 </head>
 
@@ -94,7 +113,7 @@ button:hover {
 <h1>🎬 Flow AI Studio</h1>
 
 <p style="text-align:center;">
-Erstelle professionelle KI-Video Konzepte
+KI Video Planung für YouTube, Instagram & mehr
 </p>
 
 
@@ -104,10 +123,9 @@ Erstelle professionelle KI-Video Konzepte
 <h2>🎥 Deine Video-Idee</h2>
 
 <textarea id="idea"
-placeholder="Beispiel: Ein kleiner Panda entdeckt einen magischen Wald"></textarea>
+placeholder="Beispiel: Ein realistischer Wolf läuft durch einen verschneiten Wald"></textarea>
 
 </div>
-
 
 
 
@@ -129,8 +147,6 @@ placeholder="Beispiel: Ein kleiner Panda entdeckt einen magischen Wald"></textar
 
 
 
-
-
 <div class="box">
 
 <h2>🎨 Stil</h2>
@@ -141,13 +157,11 @@ placeholder="Beispiel: Ein kleiner Panda entdeckt einen magischen Wald"></textar
 <option>Cinematic</option>
 <option>3D Animation</option>
 <option>Fantasy</option>
-<option>Natur Dokumentation</option>
+<option>Dokumentation</option>
 
 </select>
 
 </div>
-
-
 
 
 
@@ -173,29 +187,33 @@ placeholder="Beispiel: Ein kleiner Panda entdeckt einen magischen Wald"></textar
 <p id="promptText"></p>
 
 
-
 <h2>📖 Storyboard</h2>
 
 <p id="storyboardText"></p>
 
 
-
 <h2>👤 Charakter Analyse</h2>
-<h2>🎥 Kamera & Regie</h2>
-<h2>🌅 Atmosphäre & Umgebung</h2>
 
-<p id="environmentText"></p>
-<p id="cameraText"></p>
 <p id="characterText"></p>
 
 
+<h2>🎥 Kamera & Regie</h2>
+
+<p id="cameraText"></p>
+
+
+<h2>🌅 Atmosphäre & Umgebung</h2>
+
+<p id="environmentText"></p>
+
+
 
 </div>
 
 
 
-
 </div>
+
 
 
 
@@ -206,6 +224,7 @@ placeholder="Beispiel: Ein kleiner Panda entdeckt einen magischen Wald"></textar
 function createVideoPlan(){
 
 
+
 let idea = document.getElementById("idea").value;
 
 let length = document.getElementById("length").value;
@@ -214,7 +233,7 @@ let style = document.getElementById("style").value;
 
 
 
-if(idea.trim() === ""){
+if(idea.trim()==""){
 
 alert("Bitte zuerst eine Video-Idee eingeben!");
 
@@ -224,17 +243,20 @@ return;
 
 
 
+
+
 let prompt =
 
-"Create a high quality AI generated video.\n\n" +
+"Create a professional AI generated video.\n\n" +
 
-"Scene: " + idea + "\n\n" +
+"Scene:\n" + idea + "\n\n" +
 
 "Style: " + style + "\n" +
 
 "Duration: " + length + "\n\n" +
 
-"Professional cinematic camera movement, realistic lighting, detailed environment, smooth animation, 4K quality, high detail, professional film look.";
+"Cinematic camera movement, realistic lighting, detailed environment, smooth animation, 4K quality, professional film look.";
+
 
 
 
@@ -248,38 +270,27 @@ document.getElementById("promptText").innerText = prompt;
 let storyboard =
 
 
-"🎬 SZENE 1 - EINLEITUNG\n\n" +
+"🎬 SZENE 1 - EINLEITUNG (0-5 Sekunden)\n\n" +
 
-"Die Geschichte beginnt mit einer filmischen Einführung. " +
+"Die Welt und die Hauptfigur werden filmisch vorgestellt.\n" +
 
-"Die Umgebung wird detailliert gezeigt. " +
+"Zeige Umgebung, Farben, Licht und Atmosphäre detailliert.\n\n" +
 
-"Beschreibe Landschaft, Farben, Licht, Wetter und Atmosphäre passend zur Idee:\n\n" +
-
-idea + "\n\n" +
+"Kamera: Langsame Cinematic Kamerafahrt mit Tiefenschärfe.\n\n\n" +
 
 
-"Kamera: Langsame Cinematic Kamerafahrt, weiche Bewegungen, Tiefenschärfe.\n\n\n" +
+"🎬 SZENE 2 - HAUPTAKTION (5-10 Sekunden)\n\n" +
+
+"Die wichtigste Handlung passiert. Emotionen, Bewegungen und Details stehen im Mittelpunkt.\n\n" +
+
+"Kamera: Dynamische Bewegung und emotionale Nahaufnahmen.\n\n\n" +
 
 
+"🎬 SZENE 3 - FINALE (10-15 Sekunden)\n\n" +
 
-"🎬 SZENE 2 - HAUPTAKTION\n\n" +
+"Eine beeindruckende Abschlussaufnahme mit emotionaler Wirkung.\n\n" +
 
-"Die Hauptfigur erlebt den wichtigsten Moment der Geschichte. " +
-
-"Emotionen, Bewegungen und Interaktionen werden sichtbar dargestellt.\n\n" +
-
-"Kamera: Nahaufnahmen, dynamische Bewegung, professionelle Filmaufnahme.\n\n\n" +
-
-
-
-"🎬 SZENE 3 - FINALE\n\n" +
-
-"Die Geschichte endet mit einer beeindruckenden Abschlussaufnahme. " +
-
-"Warme Atmosphäre, emotionale Szene, hochwertiger Kino-Look.\n\n" +
-
-"Kamera: Weite Aufnahme, langsames Herauszoomen, epischer Abschluss.";
+"Kamera: Weite Filmaufnahme mit langsamem Zoom heraus.";
 
 
 
@@ -299,72 +310,87 @@ let character =
 
 idea + "\n\n" +
 
-
 "🎨 AUSSEHEN:\n" +
 
-"Erstelle ein detailliertes Charakterdesign mit Farben, Körperform, Gesicht, Kleidung oder besonderen Merkmalen.\n\n" +
-
+"Detailliertes Charakterdesign mit Farben, Körperform, Gesicht, Kleidung oder besonderen Merkmalen.\n\n" +
 
 "✨ PERSÖNLICHKEIT:\n" +
 
-"Die Figur besitzt klare Eigenschaften, Emotionen und eine einzigartige Persönlichkeit.\n\n" +
-
+"Eigenschaften, Emotionen und Verhalten der Figur.\n\n" +
 
 "🎬 ANIMATION:\n" +
 
-"Natürliche Bewegungen, realistische Körpersprache und emotionale Gesichtsausdrücke.";
+"Natürliche Bewegungen, Körpersprache und realistische Gesichtsausdrücke.";
 
 
 
 
 
 document.getElementById("characterText").innerText = character;
+
+
+
+
+
+
 let camera =
+
 
 "🎥 KAMERA:\n" +
 
-"Cinematic professional camera setup.\n\n" +
+"Cinematic Kamera wie bei einem professionellen Film.\n\n" +
 
 "📹 BEWEGUNG:\n" +
 
-"Langsame Kamerafahrt, flüssige Bewegungen, stabile Filmaufnahme.\n\n" +
+"Tracking Shots, langsame Kamerafahrten, Zooms und flüssige Bewegungen.\n\n" +
 
 "🔎 PERSPEKTIVE:\n" +
 
-"Filmische Perspektive mit natürlicher Tiefenschärfe und emotionaler Bildkomposition.\n\n" +
-
-"💡 LICHT:\n" +
-
-"Realistische Beleuchtung passend zur Szene, weiche Schatten, hochwertige Farben.\n\n" +
+"Tiefenschärfe, hochwertige Bildkomposition und emotionale Perspektiven.\n\n" +
 
 "🎬 FILMSTIL:\n" +
 
-"Hollywood-Kinostil, 4K Qualität, professionelle Videoproduktion.";
+"Hollywood-Kinostil, 4K, professionelle Videoproduktion.";
+
+
+
 
 
 document.getElementById("cameraText").innerText = camera;
+
+
+
+
+
+
 let environment =
+
 
 "🌅 UMGEBUNG:\n" +
 
-"Erstelle eine detaillierte Welt passend zur Geschichte. " +
-"Beschreibe Landschaft, Architektur, Natur, Wetter und kleine visuelle Details.\n\n" +
+"Erstelle eine detaillierte Welt passend zur Geschichte mit Landschaft, Wetter, Architektur und kleinen visuellen Details.\n\n" +
 
 "💡 LICHT:\n" +
 
-"Cinematic Beleuchtung, natürliche Lichtquellen, realistische Schatten, hochwertige Farben und Filmstimmung.\n\n" +
+"Realistische Beleuchtung, natürliche Schatten und filmische Farben.\n\n" +
 
 "✨ ATMOSPHÄRE:\n" +
 
-"Emotionale Stimmung passend zur Szene. " +
-"Magisch, beeindruckend und visuell ansprechend.\n\n" +
+"Emotionale Stimmung passend zur Geschichte.\n\n" +
 
 "🔍 DETAILS:\n" +
 
-"Realistische Texturen, kleine Umgebungsbewegungen, hochwertige 4K Filmqualität.";
+"Realistische Texturen, kleine Bewegungen und hochwertige 4K Filmqualität.";
+
+
+
 
 
 document.getElementById("environmentText").innerText = environment;
+
+
+
+
 
 
 document.getElementById("result").style.display="block";
@@ -374,8 +400,8 @@ document.getElementById("result").style.display="block";
 }
 
 
-</script>
 
+</script>
 
 
 </body>
