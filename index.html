@@ -39,9 +39,9 @@ h1 {
 textarea {
     width:100%;
     height:120px;
+    padding:15px;
     border-radius:10px;
     border:none;
-    padding:15px;
     font-size:16px;
     box-sizing:border-box;
 }
@@ -55,14 +55,30 @@ select {
 }
 
 button {
+
     width:100%;
     padding:18px;
+    margin-top:10px;
     background:#8b5cf6;
     color:white;
     border:none;
     border-radius:15px;
     font-size:18px;
+    cursor:pointer;
+
 }
+
+button:hover {
+    background:#7c3aed;
+}
+
+
+.result {
+
+    display:none;
+
+}
+
 
 </style>
 
@@ -71,25 +87,35 @@ button {
 
 <body>
 
+
 <div class="container">
+
 
 <h1>🎬 Flow AI Studio</h1>
 
+<p style="text-align:center;">
+Erstelle professionelle KI-Video Konzepte
+</p>
+
+
+
 <div class="box">
 
-<h2>Beschreibe dein Video</h2>
+<h2>🎥 Deine Video-Idee</h2>
 
-<textarea placeholder="Beispiel:
-Ein realistischer Wolf läuft durch einen verschneiten Wald bei Sonnenuntergang"></textarea>
+<textarea id="idea"
+placeholder="Beispiel: Ein kleiner Panda entdeckt einen magischen Wald"></textarea>
 
 </div>
 
 
+
+
 <div class="box">
 
-<h2>Videolänge</h2>
+<h2>⏱ Videolänge</h2>
 
-<select>
+<select id="length">
 
 <option>5 Sekunden</option>
 <option>10 Sekunden</option>
@@ -102,129 +128,208 @@ Ein realistischer Wolf läuft durch einen verschneiten Wald bei Sonnenuntergang"
 </div>
 
 
+
+
+
 <div class="box">
 
-<h2>Videostil</h2>
+<h2>🎨 Stil</h2>
 
-<select>
+<select id="style">
 
 <option>Realistisch</option>
 <option>Cinematic</option>
-<option>Natur</option>
-<option>Fantasy</option>
 <option>3D Animation</option>
+<option>Fantasy</option>
+<option>Natur Dokumentation</option>
 
 </select>
 
 </div>
 
 
+
+
+
 <div class="box">
 
-<button onclick="createPrompt()">
+<button onclick="createVideoPlan()">
+
 ✨ Video erstellen
+
 </button>
 
-<div class="box" id="result" style="display:none;">
+</div>
 
-<h2>🎬 Dein KI-Video Prompt</h2>
+
+
+
+
+<div class="box result" id="result">
+
+
+<h2>🎬 KI Video Prompt</h2>
 
 <p id="promptText"></p>
-<h2>👤 Charakter Analyse</h2>
 
-<p id="characterText"></p>
+
+
 <h2>📖 Storyboard</h2>
 
 <p id="storyboardText"></p>
-</div>
+
+
+
+<h2>👤 Charakter Analyse</h2>
+
+<p id="characterText"></p>
+
+
 
 </div>
 
 
+
+
 </div>
+
+
+
+
 <script>
 
-function createPrompt(){
 
-let idea = document.querySelector("textarea").value;
-
-let style = document.querySelectorAll("select")[1].value;
-
-let length = document.querySelectorAll("select")[0].value;
+function createVideoPlan(){
 
 
-let prompt = 
-"Create a high quality realistic AI video. " +
-"Scene: " + idea + ". " +
-"Style: " + style + ". " +
-"Duration: " + length + ". " +
-"Cinematic camera movement, realistic lighting, detailed environment, smooth motion, 4K quality, professional film look.";
+let idea = document.getElementById("idea").value;
+
+let length = document.getElementById("length").value;
+
+let style = document.getElementById("style").value;
+
+
+
+if(idea.trim() === ""){
+
+alert("Bitte zuerst eine Video-Idee eingeben!");
+
+return;
+
+}
+
+
+
+let prompt =
+
+"Create a high quality AI generated video.\n\n" +
+
+"Scene: " + idea + "\n\n" +
+
+"Style: " + style + "\n" +
+
+"Duration: " + length + "\n\n" +
+
+"Professional cinematic camera movement, realistic lighting, detailed environment, smooth animation, 4K quality, high detail, professional film look.";
+
+
+
+
+document.getElementById("promptText").innerText = prompt;
+
+
+
+
+
+let storyboard =
+
+
+"🎬 SZENE 1 - EINLEITUNG\n\n" +
+
+"Die Geschichte beginnt mit einer filmischen Einführung. " +
+
+"Die Umgebung wird detailliert gezeigt. " +
+
+"Beschreibe Landschaft, Farben, Licht, Wetter und Atmosphäre passend zur Idee:\n\n" +
+
+idea + "\n\n" +
+
+
+"Kamera: Langsame Cinematic Kamerafahrt, weiche Bewegungen, Tiefenschärfe.\n\n\n" +
+
+
+
+"🎬 SZENE 2 - HAUPTAKTION\n\n" +
+
+"Die Hauptfigur erlebt den wichtigsten Moment der Geschichte. " +
+
+"Emotionen, Bewegungen und Interaktionen werden sichtbar dargestellt.\n\n" +
+
+"Kamera: Nahaufnahmen, dynamische Bewegung, professionelle Filmaufnahme.\n\n\n" +
+
+
+
+"🎬 SZENE 3 - FINALE\n\n" +
+
+"Die Geschichte endet mit einer beeindruckenden Abschlussaufnahme. " +
+
+"Warme Atmosphäre, emotionale Szene, hochwertiger Kino-Look.\n\n" +
+
+"Kamera: Weite Aufnahme, langsames Herauszoomen, epischer Abschluss.";
+
+
+
 
 
 document.getElementById("storyboardText").innerText = storyboard;
+
+
+
+
+
+
 let character =
 
+
 "👤 HAUPTFIGUR:\n" +
+
 idea + "\n\n" +
 
+
 "🎨 AUSSEHEN:\n" +
-"Erstelle ein detailliertes Charakterdesign passend zur Geschichte. " +
-"Beschreibe Körperform, Farben, Gesicht, Kleidung, Fell, Haare oder besondere Merkmale.\n\n" +
+
+"Erstelle ein detailliertes Charakterdesign mit Farben, Körperform, Gesicht, Kleidung oder besonderen Merkmalen.\n\n" +
+
 
 "✨ PERSÖNLICHKEIT:\n" +
-"Die Figur besitzt klare Emotionen und Eigenschaften, die zur Geschichte passen. " +
-"Freundlich, einzigartig und leicht für Zuschauer erkennbar.\n\n" +
+
+"Die Figur besitzt klare Eigenschaften, Emotionen und eine einzigartige Persönlichkeit.\n\n" +
+
 
 "🎬 ANIMATION:\n" +
-"Natürliche Bewegungen, realistische Körpersprache, emotionale Gesichtsausdrücke, hochwertige Animation.";
+
+"Natürliche Bewegungen, realistische Körpersprache und emotionale Gesichtsausdrücke.";
+
+
+
 
 
 document.getElementById("characterText").innerText = character;
 
-"🎬 SZENE 1 - EINLEITUNG (0-5 Sekunden)\n\n" +
-
-"HAUPTHANDLUNG:\n" +
-idea + " wird als Hauptszene dargestellt. Die Kamera führt langsam in die Welt ein und zeigt die Umgebung mit vielen visuellen Details.\n\n" +
-
-"UMGEBUNG:\n" +
-"Erstelle eine detaillierte Umgebung passend zur Geschichte mit Wetter, Licht, Farben, Pflanzen, Architektur oder Landschaft. Alles wirkt lebendig und realistisch.\n\n" +
-
-"KAMERA:\n" +
-"Cinematic establishing shot, langsame Kamerafahrt, natürliche Tiefenschärfe, hochwertige Filmaufnahme.\n\n" +
-
-"DETAILS:\n" +
-"Realistische Texturen, natürliche Bewegungen, hochwertige Beleuchtung, 4K Qualität.\n\n\n" +
 
 
-"🎬 SZENE 2 - HAUPTAKTION (5-10 Sekunden)\n\n" +
 
-"HANDLUNG:\n" +
-"Die Hauptfigur erlebt den wichtigsten Moment der Geschichte. Emotionen, Bewegungen und Interaktionen werden detailliert gezeigt.\n\n" +
-
-"KAMERA:\n" +
-"Nahaufnahmen, dynamische Kamerabewegungen, emotionale Perspektiven.\n\n" +
-
-"DETAILS:\n" +
-"Realistische Physik, Gesichtsausdrücke, Bewegungen, Umgebungseffekte und filmische Beleuchtung.\n\n\n" +
-
-
-"🎬 SZENE 3 - ABSCHLUSS (10-15 Sekunden)\n\n" +
-
-"HANDLUNG:\n" +
-"Die Geschichte endet mit einer emotionalen und visuell beeindruckenden Szene.\n\n" +
-
-"KAMERA:\n" +
-"Weite Kinoaufnahme, langsames Herauszoomen, epischer Abschluss.\n\n" +
-
-"DETAILS:\n" +
-"Professioneller Filmlook, harmonische Farben, hochwertige Animation.";
-
-document.getElementById("storyboardText").innerText = storyboard;
 document.getElementById("result").style.display="block";
+
+
 
 }
 
+
 </script>
+
+
+
 </body>
 
 </html>
