@@ -130,6 +130,9 @@ Ein realistischer Wolf läuft durch einen verschneiten Wald bei Sonnenuntergang"
 <h2>🎬 Dein KI-Video Prompt</h2>
 
 <p id="promptText"></p>
+    <h2>👤 Charakter Analyse</h2>
+
+<p id="characterText"></p>
 <h2>📖 Storyboard</h2>
 
 <p id="storyboardText"></p>
@@ -160,6 +163,24 @@ let prompt =
 
 document.getElementById("promptText").innerText = prompt;
 let storyboard =
+    let character =
+
+"👤 HAUPTFIGUR:\n" +
+idea + "\n\n" +
+
+"🎨 AUSSEHEN:\n" +
+"Erstelle ein detailliertes Charakterdesign passend zur Geschichte. " +
+"Beschreibe Körperform, Farben, Gesicht, Kleidung, Fell, Haare oder besondere Merkmale.\n\n" +
+
+"✨ PERSÖNLICHKEIT:\n" +
+"Die Figur besitzt klare Emotionen und Eigenschaften, die zur Geschichte passen. " +
+"Freundlich, einzigartig und leicht für Zuschauer erkennbar.\n\n" +
+
+"🎬 ANIMATION:\n" +
+"Natürliche Bewegungen, realistische Körpersprache, emotionale Gesichtsausdrücke, hochwertige Animation.";
+
+
+document.getElementById("characterText").innerText = character;
 
 "🎬 SZENE 1 - EINLEITUNG (0-5 Sekunden)\n\n" +
 
