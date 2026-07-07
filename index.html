@@ -1,14 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
+
 <head>
-<title>Flow AI Test</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Flow AI Studio</title>
+
+<style>
+
+body {
+    background:#111827;
+    color:white;
+    font-family:Arial, sans-serif;
+    margin:0;
+}
+
+.container {
+    max-width:900px;
+    margin:auto;
+    padding:40px;
+}
+
+h1 {
+    text-align:center;
+    color:#a78bfa;
+    font-size:42px;
+}
+
+.box {
+    background:#1f2937;
+    padding:25px;
+    border-radius:20px;
+    margin-top:20px;
+}
+
+textarea {
+    width:100%;
+    height:120px;
+    border-radius:10px;
+    border:none;
+    padding:15px;
+    font-size:16px;
+    box-sizing:border-box;
+}
+
+select {
+    width:100%;
+    padding:15px;
+    border-radius:10px;
+    border:none;
+    font-size:16px;
+}
+
+button {
+    width:100%;
+    padding:18px;
+    background:#8b5cf6;
+    color:white;
+    border:none;
+    border-radius:15px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover {
+    background:#7c3aed;
+}
+
+</style>
+
 </head>
 
-<body style="background:black;color:white;text-align:center;padding:50px">
 
-<h1>🎬 FLOW AI STUDIO TEST</h1>
+<body>
 
-<p>Meine Webseite funktioniert!</p>
+<div class="container">
+
+
+<h1>🎬 Flow AI Studio</h1>
+
+
+<div class="box">
+
+<h2>Beschreibe dein Video</h2>
+
+<textarea placeholder="Beispiel:
+Ein realistischer Wolf läuft durch einen verschneiten Wald bei Sonnenuntergang">
+</textarea>
+
+</div>
+
+
+<div class="box">
+
+<h2>Videolänge</h2>
+
+<select>
+
+<option>5 Sekunden</option>
+<option>10 Sekunden</option>
+<option>15 Sekunden</option>
+<option>30 Sekunden</option>
+<option>60 Sekunden</option>
+
+</select>
+
+</div>
+
+
+<div class="box">
+
+<h2>Videostil</h2>
+
+<select>
+
+<option>Realistisch</option>
+<option>Cinematic</option>
+<option>Natur</option>
+<option>Fantasy</option>
+<option>3D Animation</option>
+
+</select>
+
+</div>
+
+
+<div class="box">
+
+<button>
+✨ Video erstellen
+</button>
+
+</div>
+
+
+</div>
 
 </body>
+
 </html>
