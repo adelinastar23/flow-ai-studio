@@ -121,15 +121,48 @@ Ein realistischer Wolf läuft durch einen verschneiten Wald bei Sonnenuntergang"
 
 <div class="box">
 
-<button>
+<button onclick="createPrompt()">
 ✨ Video erstellen
 </button>
 
+<div class="box" id="result" style="display:none;">
+
+<h2>🎬 Dein KI-Video Prompt</h2>
+
+<p id="promptText"></p>
+
+</div>
+
 </div>
 
 
 </div>
+<script>
 
+function createPrompt(){
+
+let idea = document.querySelector("textarea").value;
+
+let style = document.querySelectorAll("select")[1].value;
+
+let length = document.querySelectorAll("select")[0].value;
+
+
+let prompt = 
+"Create a high quality realistic AI video. " +
+"Scene: " + idea + ". " +
+"Style: " + style + ". " +
+"Duration: " + length + ". " +
+"Cinematic camera movement, realistic lighting, detailed environment, smooth motion, 4K quality, professional film look.";
+
+
+document.getElementById("promptText").innerText = prompt;
+
+document.getElementById("result").style.display="block";
+
+}
+
+</script>
 </body>
 
 </html>
