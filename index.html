@@ -182,7 +182,9 @@ placeholder="Beispiel: Ein kleiner Panda entdeckt einen magischen Wald"></textar
 
 <h2>👤 Charakter Analyse</h2>
 <h2>🎥 Kamera & Regie</h2>
+<h2>🌅 Atmosphäre & Umgebung</h2>
 
+<p id="environmentText"></p>
 <p id="cameraText"></p>
 <p id="characterText"></p>
 
@@ -341,7 +343,28 @@ let camera =
 
 
 document.getElementById("cameraText").innerText = camera;
+let environment =
 
+"🌅 UMGEBUNG:\n" +
+
+"Erstelle eine detaillierte Welt passend zur Geschichte. " +
+"Beschreibe Landschaft, Architektur, Natur, Wetter und kleine visuelle Details.\n\n" +
+
+"💡 LICHT:\n" +
+
+"Cinematic Beleuchtung, natürliche Lichtquellen, realistische Schatten, hochwertige Farben und Filmstimmung.\n\n" +
+
+"✨ ATMOSPHÄRE:\n" +
+
+"Emotionale Stimmung passend zur Szene. " +
+"Magisch, beeindruckend und visuell ansprechend.\n\n" +
+
+"🔍 DETAILS:\n" +
+
+"Realistische Texturen, kleine Umgebungsbewegungen, hochwertige 4K Filmqualität.";
+
+
+document.getElementById("environmentText").innerText = environment;
 
 
 document.getElementById("result").style.display="block";
